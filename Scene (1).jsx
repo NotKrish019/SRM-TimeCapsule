@@ -71,20 +71,20 @@ const GEO = {
 // BUILDING PALETTE
 // ─────────────────────────────────────────────────────────────────
 const C = {
-  hostel:       "#e2e8f0",   // light grey
-  hostelGirls:  "#f472b6",   // pink
-  academic:     "#f8fafc",   // white-ish
-  engineering:  "#fcd34d",   // yellow
-  admin:        "#60a5fa",   // light blue
-  amenity:      "#cbd5e1",   // mid grey
-  medical:      "#fca5a5",   // light red
-  sports:       "#86efac",   // light green
-  temple:       "#fbbf24",   // gold
-  construction: "#94a3b8",   // slate
-  library:      "#7dd3fc",   // sky blue
-  bank:         "#93c5fd",   // blue
-  cafe:         "#fda4af",   // rose
-  law:          "#c084fc",   // purple
+  hostel:       "#243550",
+  hostelGirls:  "#38285a",
+  academic:     "#1b3358",
+  engineering:  "#4a2515",
+  admin:        "#163545",
+  amenity:      "#222218",
+  medical:      "#3a1420",
+  sports:       "#122018",
+  temple:       "#4a3a1a",
+  construction: "#252525",
+  library:      "#192845",
+  bank:         "#1a2535",
+  cafe:         "#2a1a0a",
+  law:          "#1e3040",
 };
 
 const CATEGORY_COLORS = {
@@ -773,15 +773,14 @@ export default function Scene({ capsules = DEMO_CAPSULES, onOrbClick = () => {} 
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <Canvas
         camera={{ position: [0, 30, 32], fov: 48 }}
-        gl={{ antialias: true }}
-        style={{ background: "#050814" }}
+        gl={{ alpha: true, antialias: true }}
+        style={{ background: "transparent" }}
         performance={{ min: 0.5 }}
         dpr={[1, 1.5]}
       >
-        <color attach="background" args={['#050814']} />
         {/* Lighting */}
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[8, 28, 8]} intensity={0.8} color="#ffffff" />
+        <ambientLight intensity={0.22} />
+        <directionalLight position={[8, 28, 8]} intensity={0.5} color="#3355ff" />
         {/* Cyan from north */}
         <pointLight position={[0, 14, -28]} intensity={3}   color="#00ffe7" distance={60} decay={2} />
         {/* Orange from south */}

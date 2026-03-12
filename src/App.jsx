@@ -38,15 +38,15 @@ export default function App() {
 
 
   return (
-    <div className="relative w-screen h-screen bg-black overflow-hidden">
+    <div className="relative w-screen h-screen bg-[#87CEEB] overflow-hidden">
       {/* If firestore gave no capsules, we pass undefined to Scene so it falls back to DEMO_CAPSULES */}
       <div className="absolute inset-0 w-full h-full z-0">
          <Scene capsules={capsules.length > 0 ? capsules : undefined} onOrbClick={setSelected} />
       </div>
 
-      <div className="absolute top-4 left-4 text-white z-10 w-80">
-        <h1 className="text-xl font-bold text-cyan-400">🕰️ SRM Time Capsule</h1>
-        <p className="text-xs text-gray-400">
+      <div className="absolute top-4 left-4 text-slate-900 z-10 w-80">
+        <h1 className="text-xl font-bold text-blue-700">🕰️ SRM Time Capsule</h1>
+        <p className="text-xs text-slate-700">
            {capsules.length > 0 ? `${capsules.length} wisdom entries buried` : "Viewing Demo Mode (Firebase empty)"}
         </p>
         
