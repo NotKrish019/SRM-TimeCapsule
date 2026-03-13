@@ -38,25 +38,33 @@ export default function App() {
 
 
   return (
-    <div className="relative w-screen h-screen bg-[#87CEEB] overflow-hidden">
+    <div className="relative w-screen h-screen bg-[#050814] overflow-hidden">
       {/* If firestore gave no capsules, we pass undefined to Scene so it falls back to DEMO_CAPSULES */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full">
          <Scene capsules={capsules.length > 0 ? capsules : undefined} onOrbClick={setSelected} />
       </div>
 
-      <div className="absolute top-4 left-4 text-slate-900 z-10 w-80">
-        <h1 className="text-xl font-bold text-blue-700">🕰️ SRM Time Capsule</h1>
-        <p className="text-xs text-slate-700">
-           {capsules.length > 0 ? `${capsules.length} wisdom entries buried` : "Viewing Demo Mode (Firebase empty)"}
-        </p>
-        
+      {/* Top Left HUD Overlay */}
+      <div className="absolute top-5 left-5 z-20 pointer-events-none flex flex-col gap-3">
+        <div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[17px]">🕰️</span>
+            <h1 className="font-black text-[16px] tracking-wide" style={{ color: "#a0d4ff", textShadow: "0 0 15px rgba(0,180,255,0.6)" }}>
+              SRM Time Capsule
+            </h1>
+          </div>
+          <div style={{ color: "#5a8aaa", fontSize: 10, marginTop: 2 }}>
+            {capsules.length > 0 ? `${capsules.length} wisdom entries buried` : "Viewing Demo Mode (Firebase empty)"}
+          </div>
+        </div>
+
         {/* Seed Firestore Button - shows only if db is empty */}
         {capsules.length === 0 && (
           <button 
             onClick={seedFirestore}
-            className="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-sm rounded transition-all shadow-lg pointer-events-auto"
+            className="self-start px-3 py-1.5 bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-xs rounded shadow-[0_0_12px_rgba(234,179,8,0.4)] transition-all pointer-events-auto flex items-center gap-1.5"
           >
-            🌱 Seed Firestore Database
+            <span>🌱</span> Seed Firestore Database
           </button>
         )}
       </div>
